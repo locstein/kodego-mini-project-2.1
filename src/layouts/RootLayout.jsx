@@ -1,12 +1,14 @@
-import Sidebar from './Sidebar'
+import Sidebar from "./Sidebar";
 
-const RootLayout = ({children}) => {
+const RootLayout = ({ children }) => {
   return (
-    <div className='flex'>
+    <div className="flex">
       <Sidebar />
-      <main className="max-w-5xl flex-1 mx-auto py-4">{children}</main>
+      <main className=" flex-1 mx-auto bg-[#fbf3f0] h-screen overflow-y-auto">
+        {children}
+      </main>
     </div>
   );
-}
+};
 
-export default RootLayout
+export default RootLayout;

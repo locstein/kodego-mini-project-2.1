@@ -1,7 +1,5 @@
 const SubMenu = () => {
-  return (
-    <div>SubMenu</div>
-  )
-}
+  return <div>SubMenu</div>;
+};
 
-export default SubMenu
+export default SubMenu;
