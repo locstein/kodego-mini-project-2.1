@@ -78,14 +78,14 @@ const Sidebar = () => {
         variants={Sidebar_animation}
         initial={{ x: isTab ? -250 : 0 }}
         animate={isOpen ? "open" : "closed"}
-        className="bg-[#fbf3f0] text-gray shadow-xl z-[999] w-[16rem] max-w-[16rem] h-screen overflow-hidden md:relative fixed"
+        className="bg-[#fbf3f0] text-black shadow-xl z-[999] w-[16rem] max-w-[16rem] h-screen overflow-hidden md:relative fixed"
       >
         {/* save this lines for the logo */}
         <div className="flex items-center gap-2.5 font-medium border-b border-black py-3 mx-3">
           {/* can be img but for now icon muna */}
           {/* remove line 39 if have logo */}
           <SiNetflix size={45} className="min-w-max text-black" />
-          <span className="text-xl whitespace-pre text-black">LOGO</span>
+          <span className="text-xl whitespace-pre text-black">NotFlix</span>
         </div>
 
         {/* navbarlinks */}
@@ -161,9 +161,6 @@ const Sidebar = () => {
           <IoIosArrowBack className="cursor-pointer text-black" size={20} />
         </motion.div>
       </motion.div>
-      <div className="m-3 md:hidden" onClick={() => setIsOpen(true)}>
-        <AiOutlineMenu size={20} />
-      </div>
     </div>
   );
 };
