@@ -1,7 +1,7 @@
 import Homes from "./pages/components/Homes";
-import Movies from "./pages/Movies";
-import TvShows from "./pages/TvShows";
-import Profile from "./pages/Profile";
+import Movies from "./pages/views/Movies";
+import TvShows from "./pages/views/TvShows";
+import Profile from "./pages/views/Profile";
 
 const routes = [
   {
