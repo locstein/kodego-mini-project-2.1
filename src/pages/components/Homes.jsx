@@ -6,6 +6,7 @@ import Hero from "./Hero";
 const Homes = () => {
   return (
     <>
+      {/* navbar for the home page */}
       <div>
         <div className="navbar bg-[#fbf3f0] shadow sticky top-0">
           <div className="navbar-start">
