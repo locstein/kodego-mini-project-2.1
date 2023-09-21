@@ -1,9 +1,8 @@
-import { Routes, Route, Link } from 'react-router-dom'
-import routes from './routes'
-import RootLayout from './layouts/RootLayout'
+import { Routes, Route, Link } from "react-router-dom";
+import routes from "./routes";
+import RootLayout from "./layouts/RootLayout";
 
 function App() {
-
   return (
     <>
       <div>
@@ -16,7 +15,7 @@ function App() {
         </RootLayout>
       </div>
     </>
-  )
+  );
 }
 
-export default App
+export default App;

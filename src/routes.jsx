@@ -1,25 +1,25 @@
-import Homes from './pages/Homes'
-import Movies from './pages/Movies'
-import TvShows from './pages/TvShows'
-import Profile from './pages/Profile'
+import Homes from "./pages/components/Homes";
+import Movies from "./pages/Movies";
+import TvShows from "./pages/TvShows";
+import Profile from "./pages/Profile";
 
 const routes = [
   {
-    path: '/',
+    path: "/",
     element: <Homes />,
   },
   {
-    path: '/movies',
+    path: "/movies",
     element: <Movies />,
   },
   {
-    path: '/tv-shows',
+    path: "/tv-shows",
     element: <TvShows />,
   },
   {
-    path: '/profile',
-    element: <Profile />, 
+    path: "/profile",
+    element: <Profile />,
   },
-]
+];
 
 export default routes;
