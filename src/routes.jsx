@@ -1,4 +1,4 @@
-import Homes from "./pages/components/Homes";
+import Homes from "./pages/components/home/Homes";
 import Movies from "./pages/views/Movies";
 import TvShows from "./pages/views/TvShows";
 import Profile from "./pages/views/Profile";

@@ -1,9 +1,18 @@
-const key = "5d3f067445d2341370ceb589fea591e7";
-
-const requests = {
-  requestPopular: `https://api.themoviedb.org/3/movie/popular?api_key=${key}language=en-US&page=1`,
-  requestMovies: `https://api.themoviedb.org/3/discover/movie?api_key=${key}include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc`,
-  requestTvShows: `https://api.themoviedb.org/3/genre/tv/list?api_key=${key}language=en`,
+const options = {
+  method: "GET",
+  headers: {
+    Accept: "application/json",
+    Authorization:
+      "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI1NmM0YTBkNjYyYjBmODlhOWIyMDE5MWY1ZjQxMDdjMCIsInN1YiI6IjY1MDg2NzE3MTA5ZGVjMDE0ZjQxZWQ2NyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.UWQntQRu88Dn0fSUGrFEFa4qixmfLkKieZoWoT5y908",
+  },
 };
 
-export default requests;
+const api = "https://api.themoviedb.org/3";
+
+async function customFetch(endpoint) {
+  const response = await fetch(`${api}${endpoint}`, options);
+  const data = await response.json();
+  return data.results;
+}
+
+export default customFetch;
