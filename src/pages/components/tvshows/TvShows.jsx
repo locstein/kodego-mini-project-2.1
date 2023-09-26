@@ -1,27 +1,27 @@
-import Slider from "./Slider";
 import { MdChevronLeft, MdChevronRight } from "react-icons/md";
 import React, { useState, useEffect } from "react";
 import customFetch from "../../../http/fetch";
+import TvSlider from "./TvSlider";
 
-const Movies = ({ title, fetchURL, rowId }) => {
-  const [movies, setMovies] = useState([]);
+const TvShows = ({ title, fetchURL }) => {
+  const [tvShows, setTvShows] = useState([]);
 
   useEffect(() => {
-    async function fetchMovies() {
+    async function fetchTvShows() {
       const data = await customFetch(fetchURL);
-      setMovies(data);
+      setTvShows(data);
     }
-    fetchMovies();
+    fetchTvShows();
     return () => {};
   }, [fetchURL]);
-  // console.log(movies);
+  // console.log(tvShows);
 
   const slideLeft = () => {
-    var slider = document.getElementById("slider" + rowId);
+    var slider = document.getElementById("slider");
     slider.scrollLeft = slider.scrollLeft - 500;
   };
   const slideRight = () => {
-    var slider = document.getElementById("slider" + rowId);
+    var slider = document.getElementById("slider");
     slider.scrollLeft = slider.scrollLeft + 500;
   };
 
@@ -34,11 +34,11 @@ const Movies = ({ title, fetchURL, rowId }) => {
           className="bg-white rounded-full absolute opacity-50 hover:opacity-100 cursor-pointer z-10 hidden group-hover:block duration-100 left-0 text-2xl md:text-[2.5rem]"
         />
         <div
-          id={"slider" + rowId}
+          id={"slider"}
           className="w-full h-full overflow-x-scroll whitespace-nowrap scroll-smooth scrollbar-hide relative"
         >
-          {movies.map((item, id) => (
-            <Slider key={id} item={item} />
+          {tvShows.map((item, id) => (
+            <TvSlider key={id} item={item} />
           ))}
         </div>
         <MdChevronRight
@@ -50,4 +50,4 @@ const Movies = ({ title, fetchURL, rowId }) => {
   );
 };
 
-export default Movies;
+export default TvShows;
