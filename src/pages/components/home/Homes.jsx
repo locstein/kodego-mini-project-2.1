@@ -1,6 +1,6 @@
 import Movies from "./Movies";
 import TvShows from "./TvShows";
-import Hero from "./Hero";
+import Hero from "./hero/Hero";
 import Navbar from "./Navbar";
 import requests from "../../../http/requests";
 
