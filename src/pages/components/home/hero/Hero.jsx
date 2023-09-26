@@ -20,7 +20,7 @@ const Hero = () => {
     fetchMovies();
     return () => {};
   }, []);
-  console.log(movie);
+  // console.log(movie);
 
   const truncateString = (str, n) => {
     if (str?.length > n) {

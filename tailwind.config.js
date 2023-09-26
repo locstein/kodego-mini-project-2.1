@@ -33,5 +33,9 @@ export default {
       },
     },
   },
-  plugins: [require("tailwind-scrollbar"), require("daisyui")],
+  plugins: [
+    require("tailwind-scrollbar"),
+    require("daisyui"),
+    require("tailwind-scrollbar-hide"),
+  ],
 };

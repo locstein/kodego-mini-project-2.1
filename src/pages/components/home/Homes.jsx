@@ -1,4 +1,4 @@
-import Movies from "./Movies";
+import Movies from "../movie/Movies";
 import TvShows from "./TvShows";
 import Hero from "./hero/Hero";
 import Navbar from "./Navbar";
@@ -16,7 +16,7 @@ const Homes = () => {
         <Hero />
       </section>
 
-      <section className="padding">
+      <section className="md:padding">
         <Movies title="Movies" fetchURL={requests.fetchPopular} />
       </section>
 

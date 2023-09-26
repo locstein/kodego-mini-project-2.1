@@ -17,7 +17,7 @@ const HeroCard3 = () => {
     fetchMovies();
     return () => {};
   }, []);
-  console.log(movie);
+  // console.log(movie);
 
   const truncateString = (str, n) => {
     if (str?.length > n) {
@@ -27,7 +27,7 @@ const HeroCard3 = () => {
     }
   };
   return (
-    <div>
+    <div className="hidden md:flex">
       <img
         className="h-full w-full md:h-[8.7rem] object-cover rounded"
         src={`https://image.tmdb.org/t/p/original/${movie?.backdrop_path}`}
@@ -37,7 +37,7 @@ const HeroCard3 = () => {
       <div className="absolute w-full bottom-[5%] p-4 md:p-8">
         <h1 className="text-xl font-bold text-white">{movie?.title}</h1>
         <div>
-          <button className="border rounded bg-gray-300 text-black border-gray duration-75 hover:scale-110 px-4 py-2 mt-2">
+          <button className="border rounded bg-gray-300 text-black border-gray duration-75 hover:scale-110 px-4 py-1 mt-2">
             Play
           </button>
         </div>
