@@ -2,6 +2,7 @@ import Movies from "./Movies";
 import TvShows from "./TvShows";
 import Hero from "./Hero";
 import Navbar from "./Navbar";
+import requests from "../../../http/requests";
 
 const Homes = () => {
   return (
@@ -16,11 +17,11 @@ const Homes = () => {
       </section>
 
       <section className="padding">
-        <Movies />
+        <Movies title="Movies" fetchURL={requests.fetchPopular} />
       </section>
 
       <section className="padding">
-        <TvShows />
+        <TvShows title="Tv Shows" fetchURL={requests.fetchTvShows} />
       </section>
     </>
   );

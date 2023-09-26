@@ -3,7 +3,7 @@ const options = {
   headers: {
     Accept: "application/json",
     Authorization:
-      "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI1NmM0YTBkNjYyYjBmODlhOWIyMDE5MWY1ZjQxMDdjMCIsInN1YiI6IjY1MDg2NzE3MTA5ZGVjMDE0ZjQxZWQ2NyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.UWQntQRu88Dn0fSUGrFEFa4qixmfLkKieZoWoT5y908",
+      "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJjODlhYjBjYjU0MmY5YzI0NDcyNzZjNzMxODMyNjFlZiIsInN1YiI6IjY1MTFkYWU5ZTFmYWVkMDEwMGU5ZmUwOCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.FxYzstJSM_SDz9J8yKmi0t1bWPTA95dyRDu5AA9ytVw",
   },
 };
 
