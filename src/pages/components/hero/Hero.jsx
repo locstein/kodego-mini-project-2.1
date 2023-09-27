@@ -2,8 +2,8 @@ import HeroCard from "./HeroCard";
 import HeroCard2 from "./HeroCard2";
 import HeroCard3 from "./HeroCard3";
 import React, { useEffect, useState } from "react";
-import requests from "../../../../http/requests";
-import customFetch from "../../../../http/fetch";
+import requests from "../../../http/requests";
+import customFetch from "../../../http/fetch";
 
 const Hero = () => {
   const [movies, setMovies] = useState([]);

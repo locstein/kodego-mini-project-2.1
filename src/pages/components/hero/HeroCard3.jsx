@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
-import requests from "../../../../http/requests";
-import customFetch from "../../../../http/fetch";
+import requests from "../../../http/requests";
+import customFetch from "../../../http/fetch";
 
-const HeroCard2 = () => {
+const HeroCard3 = () => {
   const [movies, setMovies] = useState([]);
   const [movie, setMovie] = useState({});
 
@@ -46,4 +46,4 @@ const HeroCard2 = () => {
   );
 };
 
-export default HeroCard2;
+export default HeroCard3;

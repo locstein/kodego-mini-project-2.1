@@ -1,6 +1,7 @@
 import Movies from "../movie/Movies";
 import TvShows from "../tvshows/TvShows";
-import Hero from "./hero/Hero";
+import Recent from "../recentmovies/Recent";
+import Hero from "../hero/Hero";
 import Navbar from "./Navbar";
 import requests from "../../../http/requests";
 
@@ -16,12 +17,20 @@ const Homes = () => {
         <Hero />
       </section>
 
-      <section className="padding-x">
+      <section className="md:padding-x">
         <Movies rowId="1" title="Movies" fetchURL={requests.fetchPopular} />
       </section>
 
-      <section className="padding-x">
+      <section className="md:padding-x">
         <TvShows rowId="2" title="Tv Shows" fetchURL={requests.fetchTvShows} />
+      </section>
+
+      <section className="md:padding-x">
+        <Recent
+          rowId="3"
+          title="Recent Movies"
+          fetchURL={requests.fetchRecent}
+        />
       </section>
     </>
   );

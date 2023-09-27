@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import requests from "../../../../http/requests";
-import customFetch from "../../../../http/fetch";
+import requests from "../../../http/requests";
+import customFetch from "../../../http/fetch";
 
 const HeroCard = () => {
   const [movies, setMovies] = useState([]);

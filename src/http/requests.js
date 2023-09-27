@@ -3,6 +3,7 @@ const requests = {
   fetchTopRated: `/movie/top_rated?language=en-US&page=1`,
   fetchUpcoming: `/movie/upcoming?language=en-US&page=1`,
   fetchTvShows: `/tv/top_rated?language=en-US&page=1`,
+  fetchRecent: `/movie/now_playing?language=en-US&page=1`,
 };
 
 export default requests;
