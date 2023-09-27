@@ -1,71 +1,57 @@
-import { NavLink } from "react-router-dom";
+import ProfileImg from "../../../assets/images/navbar-profile-img.jpg";
+import { BsSunFill } from "react-icons/bs";
+import { SiNetflix } from "react-icons/si";
+import React, { useState, useEffect } from "react";
 
 const Navbar = () => {
+  // const [isDarkMode, setIsDarkMode] = useState(false);
+
+  // // Toggle dark mode when the button is clicked
+  // const toggleDarkMode = () => {
+  //   setIsDarkMode((prevMode) => !prevMode);
+  // };
+
+  // // Update the dark mode preference in local storage
+  // useEffect(() => {
+  //   localStorage.setItem("darkMode", JSON.stringify(isDarkMode));
+  // }, [isDarkMode]);
+
+  // // Check for dark mode preference in local storage on component mount
+  // useEffect(() => {
+  //   const savedDarkMode = JSON.parse(localStorage.getItem("darkMode"));
+  //   if (savedDarkMode !== null) {
+  //     setIsDarkMode(savedDarkMode);
+  //   }
+  // }, []);
+
   return (
-    <div>
-      <div className="navbar bg-[#fbf3f0] shadow sticky top-0">
-        <div className="navbar-start">
-          <div className="dropdown">
-            <label
-              tabIndex={0}
-              className="btn btn-ghost text-black btn-circle md:hidden"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-5 w-5"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M4 6h16M4 12h16M4 18h7"
-                />
-              </svg>
-            </label>
-            <ul
-              tabIndex={0}
-              className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-[#fbf3f0] rounded-box w-52 text-black"
-            >
-              <li>
-                <NavLink to="/">Home</NavLink>
-              </li>
-              <li>
-                <NavLink to="/movies">Movies</NavLink>
-              </li>
-              <li>
-                <NavLink to="/tv-shows">Tv Shows</NavLink>
-              </li>
-              <li>
-                <NavLink to="/profile">Profile</NavLink>
-              </li>
-            </ul>
-          </div>
-        </div>
-        <div className="navbar-center">
-          <a className="normal-case text-[2rem] font-semibold text-black">
-            Home
-          </a>
-        </div>
-        <div className="navbar-end">
-          <button className="btn btn-ghost btn-circle text-black">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-5 w-5"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
-              />
-            </svg>
-          </button>
+    <div className="navbar bg-[#fbf3f0] dark:bg-black shadow-md">
+      <div className="flex-1">
+        <a className="normal-case text-xl text-black font-bold padding-x">
+          <div className="tracking-wide text-3xl">CineVerse</div>
+        </a>
+      </div>
+      <div className="flex-none gap-2 padding-x">
+        <div className="dropdown dropdown-end">
+          <label tabIndex={0} className="btn btn-ghost btn-circle avatar flex">
+            <div className="w-10 rounded-full flex">
+              <img src={ProfileImg} />
+            </div>
+          </label>
+          <ul
+            tabIndex={0}
+            className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-[#fbf3f0] text-black rounded-box w-52"
+          >
+            <li>
+              <a className="justify-between">Profile</a>
+            </li>
+            <li>
+              <a>Settings</a>
+            </li>
+            <li>
+              <a>Logout</a>
+            </li>
+          </ul>
         </div>
       </div>
     </div>

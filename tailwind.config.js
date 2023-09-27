@@ -38,4 +38,6 @@ export default {
     require("daisyui"),
     require("tailwind-scrollbar-hide"),
   ],
+  mode: "jit",
+  darkMode: "class",
 };
