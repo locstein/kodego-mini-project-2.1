@@ -7,12 +7,11 @@ const Navbar = () => {
   const [burgNav, toggleBurgNav] = useCycle(false, true);
 
   return (
-    <nav className="fixed top-0 inset-x-0 h-16 bg-[#fbf3f0] shadow-md mx-auto flex flex-col justify-center z-[100]">
-      <div className="md:padding-x h-full px-4 flex items-center">
-        <div className="relative z-[101] flex flex-row-reverse items-center gap-3">
-          <div className="text-2xl tracking-widest font-bold text-black">
-            CineVerse
-          </div>
+    // Navbar
+    <nav className="fixed top-0 inset-x-0 h-20 bg-[#fbf3f0] shadow-md mx-auto flex flex-col justify-center z-[100]">
+      <div className="md:padding-x h-full px-4 flex items-center justify-between">
+        <div className="text-2xl tracking-wide font-bold text-black z-[101] flex items-center flex-row-reverse gap-3">
+          CineVerse
           <motion.button
             animate={burgNav ? "open" : "closed"}
             onClick={() => toggleBurgNav()}
@@ -41,7 +40,12 @@ const Navbar = () => {
             ></motion.span>
           </motion.button>
         </div>
+        <button className="text-white bg-black px-4 py-3 rounded hover:bg-stone-700">
+          DarkMode
+        </button>
+        {/* start of hamburger menu */}
       </div>
+      {/* NavMenu */}
       <AnimatePresence>
         {burgNav && (
           <MotionConfig
@@ -86,7 +90,10 @@ const Navbar = () => {
                   },
                 }}
               >
-                <div className="mx-1 font-bold text-black text-xl">Hello,</div>
+                <div className="w-full bg-black h-px my-6"></div>
+                <div className="w-7 md:mx-1 font-bold text-black text-xl mx-auto">
+                  Hello,
+                </div>
                 <motion.div
                   variants={{
                     open: {
@@ -98,7 +105,7 @@ const Navbar = () => {
                       opacity: 0,
                     },
                   }}
-                  className="my-5 font-bold text-2xl tracking-widest text-black flex items-center justify-center "
+                  className="my-5 font-bold text-2xl tracking-widest text-black flex items-center justify-center"
                 >
                   <img
                     className="avatar rounded-full w-10"
@@ -120,15 +127,15 @@ const Navbar = () => {
                   }}
                   className="w-full bg-black h-px my-6"
                 ></motion.div>
-                <ul className="space-y-5">
-                  <li className="text-black font-semibold text-xl  md:text-4xl cursor-pointer">
-                    Home
+                <ul className="space-y-2 flex flex-col items-center md:block">
+                  <li className="text-black font-semibold text-xl  md:text-4xl cursor-pointer hover:bg-slate-300 duration-100 rounded p-3">
+                    <Link to="/">Home</Link>
                   </li>
-                  <li className="text-black font-semibold text-xl  md:text-4xl cursor-pointer">
-                    Movies
+                  <li className="text-black font-semibold text-xl  md:text-4xl cursor-pointer hover:bg-slate-300 duration-100 rounded p-3">
+                    <Link to="/movies">Movies</Link>
                   </li>
-                  <li className="text-black font-semibold text-xl  md:text-4xl cursor-pointer">
-                    Tv Shows
+                  <li className="text-black font-semibold text-xl  md:text-4xl cursor-pointer hover:bg-slate-300 duration-100 rounded p-3">
+                    <Link to="/tv-shows">Tv Shows</Link>
                   </li>
                 </ul>
               </motion.div>
