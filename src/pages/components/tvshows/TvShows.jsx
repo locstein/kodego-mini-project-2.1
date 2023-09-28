@@ -27,7 +27,9 @@ const TvShows = ({ title, fetchURL }) => {
 
   return (
     <>
-      <h2 className="text-black font-bold md:text-xl p-4">{title}</h2>
+      <h2 className="text-black dark:text-gray-200 font-bold md:text-xl p-4">
+        {title}
+      </h2>
       <div className="relative flex items-center group">
         <MdChevronLeft
           onClick={slideLeft}

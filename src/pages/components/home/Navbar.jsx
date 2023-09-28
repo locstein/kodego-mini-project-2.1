@@ -5,13 +5,22 @@ import ProfileImg from "../../../assets/images/navbar-profile-img.jpg";
 
 const Navbar = () => {
   const [burgNav, toggleBurgNav] = useCycle(false, true);
+  let [darkMode, setDarkMode] = useState(false);
+
+  useEffect(() => {
+    if (darkMode) {
+      document.documentElement.classList.add("dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+    }
+  }, [darkMode]);
 
   return (
     // Navbar
-    <nav className="fixed top-0 inset-x-0 h-20 bg-[#fbf3f0] shadow-md mx-auto flex flex-col justify-center z-[100]">
+    <nav className="fixed top-0 inset-x-0 h-20 bg-[#fbf3f0] dark:bg-stone-900 shadow-md mx-auto flex flex-col justify-center z-[100]">
       <div className="md:padding-x h-full px-4 flex items-center justify-between">
         {/* logo */}
-        <div className="text-2xl tracking-wide font-bold text-black z-[101] flex items-center flex-row-reverse gap-3">
+        <div className="text-2xl tracking-wide font-bold text-black dark:text-gray-200 z-[101] flex items-center flex-row-reverse gap-3">
           CineVerse
           {/* hamburger styles */}
           <motion.button
@@ -24,27 +33,32 @@ const Navbar = () => {
                 closed: { rotate: 0, y: 0 },
                 open: { rotate: 45, y: 5 },
               }}
-              className="w-5 h-px bg-black block"
+              className="w-5 h-px bg-black dark:bg-gray-200 block"
             ></motion.span>
             <motion.span
               variants={{
                 closed: { opacity: 1 },
                 open: { opacity: 0 },
               }}
-              className="w-5 h-px bg-black block"
+              className="w-5 h-px bg-black dark:bg-gray-200 block"
             ></motion.span>
             <motion.span
               variants={{
                 closed: { rotate: 0 },
                 open: { rotate: -45, y: -5 },
               }}
-              className="w-5 h-px bg-black block"
+              className="w-5 h-px bg-black dark:bg-gray-200 block"
             ></motion.span>
           </motion.button>
         </div>
         {/* dark mode button */}
-        <button className="text-white bg-black px-4 py-3 rounded hover:bg-stone-700">
-          Dark Mode
+        <button
+          onClick={() => {
+            setDarkMode(!darkMode);
+          }}
+          className="text-white bg-black dark:text-gray-200 dark:bg-[#343231] px-4 py-3 rounded hover:bg-stone-700"
+        >
+          {darkMode ? "Light" : "Dark"} Mode
         </button>
       </div>
       {/* NavMenu */}
@@ -78,7 +92,7 @@ const Navbar = () => {
               initial="closed"
               animate="open"
               exit="closed"
-              className="fixed w-full h-screen top-0 left-0 md:w-[400px] md:h-screen bg-[#fbf3f0] space-y-10 p-6 flex flex-col justify-center mx-auto padding-x z-[100]"
+              className="fixed w-full h-screen top-0 left-0 md:w-[400px] md:h-screen bg-[#fbf3f0] dark:bg-[#343231] space-y-10 p-6 flex flex-col justify-center mx-auto padding-x z-[100]"
             >
               <motion.div
                 variants={{
@@ -93,8 +107,8 @@ const Navbar = () => {
                 }}
               >
                 {/* profile */}
-                <div className="w-full bg-black h-px my-6"></div>
-                <div className="w-7 md:mx-4 font-bold text-black text-xl mx-auto">
+                <div className="w-full bg-black dark:bg-white h-px my-6"></div>
+                <div className="w-7 md:mx-4 font-bold text-black dark:text-gray-200 text-xl mx-auto">
                   Hello,
                 </div>
                 <motion.div
@@ -108,7 +122,7 @@ const Navbar = () => {
                       opacity: 0,
                     },
                   }}
-                  className="my-5 font-bold text-2xl tracking-widest text-black flex items-center justify-center"
+                  className="my-5 font-bold text-2xl tracking-widest text-black dark:text-gray-200 flex items-center justify-center"
                 >
                   <img
                     className="avatar rounded-full w-10"
@@ -128,16 +142,16 @@ const Navbar = () => {
                       opacity: 0,
                     },
                   }}
-                  className="w-full bg-black h-px my-6"
+                  className="w-full bg-black dark:bg-gray-200  h-px my-6"
                 ></motion.div>
                 <ul className="space-y-2 flex flex-col items-center md:block">
-                  <li className="text-black font-semibold text-xl  md:text-2xl cursor-pointer hover:bg-slate-300 duration-100 rounded p-3">
+                  <li className="text-black dark:text-gray-200 font-semibold text-xl  md:text-2xl cursor-pointer hover:bg-slate-300 dark:hover:text-black duration-100 rounded p-3">
                     <Link to="/">Home</Link>
                   </li>
-                  <li className="text-black font-semibold text-xl  md:text-2xl cursor-pointer hover:bg-slate-300 duration-100 rounded p-3">
+                  <li className="text-black dark:text-gray-200 font-semibold text-xl  md:text-2xl cursor-pointer hover:bg-slate-300 dark:hover:text-black duration-100 rounded p-3">
                     <Link to="/movies">Movies</Link>
                   </li>
-                  <li className="text-black font-semibold text-xl  md:text-2xl cursor-pointer hover:bg-slate-300 duration-100 rounded p-3">
+                  <li className="text-black dark:text-gray-200 font-semibold text-xl  md:text-2xl cursor-pointer hover:bg-slate-300 dark:hover:text-black duration-100 rounded p-3">
                     <Link to="/tv-shows">Tv Shows</Link>
                   </li>
                 </ul>
@@ -153,7 +167,7 @@ const Navbar = () => {
                     opacity: 0,
                   },
                 }}
-                className="w-full bg-black h-px"
+                className="w-full bg-black h-px dark:bg-gray-200"
               ></motion.div>
               <motion.div
                 variants={{

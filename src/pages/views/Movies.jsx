@@ -19,7 +19,7 @@ const Movies = () => {
   return (
     <div className="padding">
       <Navbar />
-      <h2 className="font-bold text-4xl text-black ml-2.5 mt-16 sm:mt-15 sm:mt-3 mb-4">
+      <h2 className="font-bold text-4xl text-black dark:text-gray-200 ml-2.5 mt-16 sm:mt-15 sm:mt-3 mb-4">
         Movies
       </h2>
       <div className="grid md:grid-cols-3 lg:grid-cols-4 gap-y-5">
