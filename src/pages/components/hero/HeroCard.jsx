@@ -33,7 +33,7 @@ const HeroCard = () => {
         src={`https://image.tmdb.org/t/p/original/${movie?.backdrop_path}`}
         alt={movie?.title}
       />
-      <div className="absolute inset-0 bg-gradient-to-t from-black"></div>
+      <div className="absolute inset-0 bg-gradient-to-tr from-black"></div>
       <div className="absolute w-full bottom-[5%] p-4 md:p-8">
         <h1 className="text-xl font-bold text-white">{movie?.title}</h1>
         <div>

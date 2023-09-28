@@ -32,7 +32,7 @@ const Hero = () => {
 
   return (
     <div>
-      <header className="md:padding grid grid-cols-1 md:grid-cols-6 md:grid-rows-3 md:gap-8">
+      <header className="md:padding grid grid-cols-1 md:grid-cols-6 md:grid-rows-3 md:gap-8 mt-10">
         <div className="row-span-6 md:col-span-4 md:row-span-3 md:rounded-lg shadow-lg relative">
           <div className="h-[19rem] md:h-[30rem]">
             <img
@@ -41,7 +41,7 @@ const Hero = () => {
               alt={movie?.title}
             />
           </div>
-          <div className="absolute inset-0 bg-gradient-to-t from-black"></div>
+          <div className="absolute inset-0 bg-gradient-to-tr from-black"></div>
           <div className="absolute w-full top-[30%] p-4 md:p-8">
             <h1 className="text-3xl md:text-5xl font-bold text-white">
               {movie?.title}
