@@ -10,8 +10,10 @@ const Navbar = () => {
     // Navbar
     <nav className="fixed top-0 inset-x-0 h-20 bg-[#fbf3f0] shadow-md mx-auto flex flex-col justify-center z-[100]">
       <div className="md:padding-x h-full px-4 flex items-center justify-between">
+        {/* logo */}
         <div className="text-2xl tracking-wide font-bold text-black z-[101] flex items-center flex-row-reverse gap-3">
           CineVerse
+          {/* hamburger styles */}
           <motion.button
             animate={burgNav ? "open" : "closed"}
             onClick={() => toggleBurgNav()}
@@ -40,10 +42,10 @@ const Navbar = () => {
             ></motion.span>
           </motion.button>
         </div>
+        {/* dark mode button */}
         <button className="text-white bg-black px-4 py-3 rounded hover:bg-stone-700">
-          DarkMode
+          Dark Mode
         </button>
-        {/* start of hamburger menu */}
       </div>
       {/* NavMenu */}
       <AnimatePresence>
@@ -90,8 +92,9 @@ const Navbar = () => {
                   },
                 }}
               >
+                {/* profile */}
                 <div className="w-full bg-black h-px my-6"></div>
-                <div className="w-7 md:mx-1 font-bold text-black text-xl mx-auto">
+                <div className="w-7 md:mx-4 font-bold text-black text-xl mx-auto">
                   Hello,
                 </div>
                 <motion.div
@@ -112,7 +115,7 @@ const Navbar = () => {
                     src={ProfileImg}
                     alt=""
                   />
-                  <div className="mx-3">RaphaelPascual</div>
+                  <div className="mx-3 tracking-normal">RaphaelPascual</div>
                 </motion.div>
                 <motion.div
                   variants={{
@@ -128,13 +131,13 @@ const Navbar = () => {
                   className="w-full bg-black h-px my-6"
                 ></motion.div>
                 <ul className="space-y-2 flex flex-col items-center md:block">
-                  <li className="text-black font-semibold text-xl  md:text-4xl cursor-pointer hover:bg-slate-300 duration-100 rounded p-3">
+                  <li className="text-black font-semibold text-xl  md:text-2xl cursor-pointer hover:bg-slate-300 duration-100 rounded p-3">
                     <Link to="/">Home</Link>
                   </li>
-                  <li className="text-black font-semibold text-xl  md:text-4xl cursor-pointer hover:bg-slate-300 duration-100 rounded p-3">
+                  <li className="text-black font-semibold text-xl  md:text-2xl cursor-pointer hover:bg-slate-300 duration-100 rounded p-3">
                     <Link to="/movies">Movies</Link>
                   </li>
-                  <li className="text-black font-semibold text-xl  md:text-4xl cursor-pointer hover:bg-slate-300 duration-100 rounded p-3">
+                  <li className="text-black font-semibold text-xl  md:text-2xl cursor-pointer hover:bg-slate-300 duration-100 rounded p-3">
                     <Link to="/tv-shows">Tv Shows</Link>
                   </li>
                 </ul>

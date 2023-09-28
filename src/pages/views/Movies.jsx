@@ -1,7 +1,7 @@
-import React from "react";
+import Navbar from "../components/home/Navbar";
 
 const Movies = () => {
-  return <div>Movies</div>;
+  return <Navbar />;
 };
 
 export default Movies;
