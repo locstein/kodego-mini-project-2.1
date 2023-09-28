@@ -28,7 +28,7 @@ const Homes = () => {
       <section className="md:padding-x">
         <Recent
           rowId="3"
-          title="Recent Movies"
+          title="New Releases"
           fetchURL={requests.fetchRecent}
         />
       </section>

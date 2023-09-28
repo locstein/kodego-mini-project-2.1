@@ -1,60 +1,231 @@
-import ProfileImg from "../../../assets/images/navbar-profile-img.jpg";
-import { BsSunFill } from "react-icons/bs";
-import { SiNetflix } from "react-icons/si";
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
+import { motion, useCycle, AnimatePresence, MotionConfig } from "framer-motion";
+import ProfileImg from "../../../assets/images/navbar-profile-img.jpg";
 
 const Navbar = () => {
-  // const [isDarkMode, setIsDarkMode] = useState(false);
-
-  // // Toggle dark mode when the button is clicked
-  // const toggleDarkMode = () => {
-  //   setIsDarkMode((prevMode) => !prevMode);
-  // };
-
-  // // Update the dark mode preference in local storage
-  // useEffect(() => {
-  //   localStorage.setItem("darkMode", JSON.stringify(isDarkMode));
-  // }, [isDarkMode]);
-
-  // // Check for dark mode preference in local storage on component mount
-  // useEffect(() => {
-  //   const savedDarkMode = JSON.parse(localStorage.getItem("darkMode"));
-  //   if (savedDarkMode !== null) {
-  //     setIsDarkMode(savedDarkMode);
-  //   }
-  // }, []);
+  const [burgNav, toggleBurgNav] = useCycle(false, true);
 
   return (
-    <div className="navbar bg-[#fbf3f0] dark:bg-black shadow-md">
-      <div className="flex-1">
-        <a className="normal-case text-xl text-black font-bold padding-x">
-          <div className="tracking-wide text-3xl">CineVerse</div>
-        </a>
-      </div>
-      <div className="flex-none gap-2 padding-x">
-        <div className="dropdown dropdown-end">
-          <label tabIndex={0} className="btn btn-ghost btn-circle avatar flex">
-            <div className="w-10 rounded-full flex">
-              <img src={ProfileImg} />
-            </div>
-          </label>
-          <ul
-            tabIndex={0}
-            className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-[#fbf3f0] text-black rounded-box w-52"
+    <nav className="fixed top-0 inset-x-0 h-16 bg-[#fbf3f0] shadow-md mx-auto flex flex-col justify-center z-[100]">
+      <div className="md:padding-x h-full px-4 flex items-center">
+        <div className="relative z-[101] flex flex-row-reverse items-center gap-3">
+          <div className="text-2xl tracking-widest font-bold text-black">
+            CineVerse
+          </div>
+          <motion.button
+            animate={burgNav ? "open" : "closed"}
+            onClick={() => toggleBurgNav()}
+            className="flex flex-col space-y-1"
           >
-            <li>
-              <a className="justify-between">Profile</a>
-            </li>
-            <li>
-              <a>Settings</a>
-            </li>
-            <li>
-              <a>Logout</a>
-            </li>
-          </ul>
+            <motion.span
+              variants={{
+                closed: { rotate: 0, y: 0 },
+                open: { rotate: 45, y: 5 },
+              }}
+              className="w-5 h-px bg-black block"
+            ></motion.span>
+            <motion.span
+              variants={{
+                closed: { opacity: 1 },
+                open: { opacity: 0 },
+              }}
+              className="w-5 h-px bg-black block"
+            ></motion.span>
+            <motion.span
+              variants={{
+                closed: { rotate: 0 },
+                open: { rotate: -45, y: -5 },
+              }}
+              className="w-5 h-px bg-black block"
+            ></motion.span>
+          </motion.button>
         </div>
       </div>
-    </div>
+      <AnimatePresence>
+        {burgNav && (
+          <MotionConfig
+            transition={{
+              type: "spring",
+              bounce: 0.099,
+            }}
+          >
+            <motion.div
+              variants={{
+                open: {
+                  x: "0%",
+                  transition: {
+                    when: "beforeChildren",
+                    type: "spring",
+                    bounce: 0.25,
+                  },
+                },
+                closed: {
+                  x: "-100%",
+                  transition: {
+                    when: "afterChildren",
+                    type: "spring",
+                    bounce: 0.25,
+                  },
+                },
+              }}
+              initial="closed"
+              animate="open"
+              exit="closed"
+              className="fixed w-full h-screen top-0 left-0 md:w-[400px] md:h-screen bg-[#fbf3f0] space-y-10 p-6 flex flex-col justify-center mx-auto padding-x z-[100]"
+            >
+              <motion.div
+                variants={{
+                  open: {
+                    y: "0%",
+                    opacity: 1,
+                  },
+                  closed: {
+                    y: "25%",
+                    opacity: 0,
+                  },
+                }}
+              >
+                <div className="mx-1 font-bold text-black text-xl">Hello,</div>
+                <motion.div
+                  variants={{
+                    open: {
+                      y: "0%",
+                      opacity: 1,
+                    },
+                    closed: {
+                      y: "25%",
+                      opacity: 0,
+                    },
+                  }}
+                  className="my-5 font-bold text-2xl tracking-widest text-black flex items-center justify-center "
+                >
+                  <img
+                    className="avatar rounded-full w-10"
+                    src={ProfileImg}
+                    alt=""
+                  />
+                  <div className="mx-3">RaphaelPascual</div>
+                </motion.div>
+                <motion.div
+                  variants={{
+                    open: {
+                      y: "0%",
+                      opacity: 1,
+                    },
+                    closed: {
+                      y: "25%",
+                      opacity: 0,
+                    },
+                  }}
+                  className="w-full bg-black h-px my-6"
+                ></motion.div>
+                <ul className="space-y-5">
+                  <li className="text-black font-semibold text-xl  md:text-4xl cursor-pointer">
+                    Home
+                  </li>
+                  <li className="text-black font-semibold text-xl  md:text-4xl cursor-pointer">
+                    Movies
+                  </li>
+                  <li className="text-black font-semibold text-xl  md:text-4xl cursor-pointer">
+                    Tv Shows
+                  </li>
+                </ul>
+              </motion.div>
+              <motion.div
+                variants={{
+                  open: {
+                    y: "0%",
+                    opacity: 1,
+                  },
+                  closed: {
+                    y: "25%",
+                    opacity: 0,
+                  },
+                }}
+                className="w-full bg-black h-px"
+              ></motion.div>
+              <motion.div
+                variants={{
+                  open: {
+                    y: "0%",
+                    opacity: 1,
+                  },
+                  closed: {
+                    y: "25%",
+                    opacity: 0,
+                  },
+                }}
+                className="flex items-center"
+              ></motion.div>
+            </motion.div>
+          </MotionConfig>
+        )}
+      </AnimatePresence>
+    </nav>
+
+    // <header className="flex w-full h-[5rem] px-4 justify-between items-center bg-black text-gray-300">
+    //   {/* LOGO */}
+    //   <span className="font-bold text-xl">Portfolio</span>
+    //   {/* NavLinks */}
+    //   <ul className="hidden md:flex">
+    //     <li className="hover:bg-red-800 hover:text-white hover:rounded duration-100">
+    //       <Link to="home" smooth={true} duration={500}>
+    //         Home
+    //       </Link>
+    //     </li>
+    //     <li className="hover:bg-red-800 hover:text-white hover:rounded duration-100">
+    //       <Link to="about" smooth={true} duration={500}>
+    //         About
+    //       </Link>
+    //     </li>
+    //     <li className="hover:bg-red-800 hover:text-white hover:rounded duration-100">
+    //       <Link to="skills" smooth={true} duration={500}>
+    //         Skills
+    //       </Link>
+    //     </li>
+    //     <li className="hover:bg-red-800 hover:text-white hover:rounded duration-100">
+    //       <Link to="contact" smooth={true} duration={500}>
+    //         Contact
+    //       </Link>
+    //     </li>
+    //   </ul>
+
+    //   {/* mobile view */}
+    //   <div onClick={handleClick} className="md:hidden z-[99] cursor-pointer">
+    //     {!nav ? <FaBars /> : <FaTimes />}
+    //   </div>
+
+    //   {/* mobile menu */}
+    //   <ul
+    //     className={
+    //       !nav
+    //         ? "hidden"
+    //         : "absolute top-0 right-0 w-[300px] h-screen bg-[#000814] flex flex-col justify-center items-center"
+    //     }
+    //   >
+    //     <li className="py-5 text-3xl hover:bg-white hover:text-black hover:rounded duration-100">
+    //       <Link onClick={handleClick} to="home" smooth={true} duration={500}>
+    //         Home
+    //       </Link>
+    //     </li>
+    //     <li className="py-5 text-3xl hover:bg-white hover:text-black hover:rounded duration-100">
+    //       <Link onClick={handleClick} to="about" smooth={true} duration={500}>
+    //         About
+    //       </Link>
+    //     </li>
+    //     <li className="py-5 text-3xl hover:bg-white hover:text-black hover:rounded duration-100">
+    //       <Link onClick={handleClick} to="skills" smooth={true} duration={500}>
+    //         Skills
+    //       </Link>
+    //     </li>
+    //     <li className="py-5 text-3xl hover:bg-white hover:text-black hover:rounded duration-100">
+    //       <Link onClick={handleClick} to="contact" smooth={true} duration={500}>
+    //         Contact
+    //       </Link>
+    //     </li>
+    //   </ul>
+    // </header>
   );
 };
 
